@@ -103,3 +103,46 @@ const MONGO_URI = 'mongodb+srv://yourusername:yourpassword@cluster0-88ro9.mongod
 9. Restart your server by running 'npm run dev' and you should see "Connected to MongoLab instance" along with a potential deprecation warning (which shouldn't effect the functionality of your app).
 
 You should now be able to successfully load your app at localhost:4000 and localhost:4000/graphql
+
+
+## About libraries:
+<b>ApolloClient:</b> This module is responsible for interacting with GraphQL APIs. It provides the functionality to make requests to a GraphQL server and handles the responses. It acts as a client-side library that enables you to perform GraphQL operations like queries, mutations, and subscriptions.
+
+<b>ApolloProvider:</b> This module is provided by the react-apollo library. It is a higher-order component (HOC) that integrates Apollo Client with React applications. It wraps your React component tree and makes the Apollo Client instance available to all components in the tree. This allows you to access and use the Apollo Client functionality, such as executing GraphQL queries, mutations, and managing local state, within your React components.
+
+By importing and using ApolloClient and ApolloProvider together, you can leverage the capabilities of Apollo Client to interact with a GraphQL API and utilize the Apollo Provider to provide the client instance to your React components.
+Here's an example of how you might use these imports in a React application:
+
+<pre>
+import React from 'react';
+import ApolloClient from 'apollo-client';
+import { ApolloProvider } from 'react-apollo';
+
+const client = new ApolloClient({
+  // Configure the Apollo Client with necessary options
+});
+
+function App() {
+  return (
+    <ApolloProvider client={client}>
+      {/* Your React component tree */}
+    </ApolloProvider>
+  );
+}
+
+export default App;
+</pre>
+
+## GraphQL + React Strategy
+
+<ul>
+<li>Identify data required</li>
+<li>Write query in GraphQL (for practice) and in component file</li>
+<li>Bond query + component</li>
+<li>Access data!</li>
+</ul>
+<br>
+
+
+## Lyrical GraphQL Setup
+<img src="client/images/flowdiagram.png" height="500px;" width="500px;" style="margin-left:20%;margin-top:5%"/>
