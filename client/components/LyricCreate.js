@@ -20,7 +20,7 @@ class LyricCreate extends Component{
                 content : this.state.content
             }
         })
-        .then(() => this.props.data.refetch());
+        .then(() => this.setState({content : ""}));
     }
 
     render(){
