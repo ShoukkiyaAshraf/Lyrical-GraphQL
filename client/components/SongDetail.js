@@ -6,36 +6,21 @@ import LyricCreate from "./LyricCreate";
 import LyricList from "./LyricList";
 
 class SongDetails extends Component{
-
-    renderSongDetails(){
-        const song = this.props.data.song;
-        return (
-            <div>
-                <h3>{song.title}</h3>
-            </div>
-            );
-    }
-
     render(){
-        const { loading } = this.props.data;
-        const song = this.props.data.song ? this.props.data.song : null;
-        if(loading || song === null){
-            return(
-                <div>
-                    <h3>Loading</h3> 
-                </div>
-            )
-        }
-        else{   
+        const {song} = this.props.data;
+        debugger;
+        if (!song) 
+            { 
+                return <div>Loading...</div>; 
+            }  
             return(
                 <div>
                     <Link to="/">Back</Link>
-                    {this.renderSongDetails()}
-                    <LyricList/>
+                    <h3>{song.title}</h3>
+                    <LyricList lyric={song.lyrics}/>
                     <LyricCreate songId={song.id}/>
                 </div>
                 )
-            }
     }
 }
 

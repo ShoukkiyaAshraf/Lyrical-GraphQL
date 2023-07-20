@@ -7,6 +7,7 @@ export default gql `query SongDetails($id: ID!) {
       lyrics{
         id
         content
+        likes
       }
     }
   }`;
